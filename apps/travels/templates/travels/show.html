@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load staticfiles %}
+        <link href="{% static 'review/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <p><a href="/travels">Home</a> | <a href="/logout">Logout</a></p>
+        <h1>{{destination.title}}</h1>
+        <h2>{{destination.user}}</h2>
+        <div class="destination">
+            <h3>Planned by:</h3>
+            <hr>
+            {% for review in <destination class="destination"></destination>.all %}
+                <p><a href="/user/{{review.reviewer.id}}">{{review.reviewer.name}}</a> Description: {{review.review}}</p>
+            <p>Travel date From: {{destination.created_at}}</p>
+            <p>Travel date To: {{destination.completed_by}}</p>
+            <hr>
+            {% endfor %}
+        </div>
+        <form action="/travels/{{destination.id}}/create" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <h1>Other users joining the trip:</h1>
+                <label for="user">{{user.added}}</label>
+                <label for="user">{{user.added}}</label>
+            </div>
+            <div class="form-group">
+                
+            </div>
+           
+        </form>
+    </body>
+</html>
